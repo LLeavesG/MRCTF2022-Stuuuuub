@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EFD668"
+    android:backgroundTintMode="multiply"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/checkButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="159dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginEnd="164dp"
+        android:layout_marginBottom="117dp"
+        android:background="#F4511E"
+        android:backgroundTint="#E53935"
+        android:text="Check"
+        android:textColor="#E8E8E8"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:layout_constraintVertical_bias="0.589"
+        app:rippleColor="#FFFFFF" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="249dp"
+        android:layout_height="143dp"
+        android:layout_marginStart="74dp"
+        android:layout_marginTop="68dp"
+        android:layout_marginEnd="74dp"
+        android:layout_marginBottom="100dp"
+        app:layout_constraintBottom_toTopOf="@+id/input"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/merak_removebg_preview" />
+
+    <EditText
+        android:id="@+id/input"
+        android:layout_width="342dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="83dp"
+        android:layout_marginEnd="82dp"
+        android:layout_marginBottom="100dp"
+        android:background="#B6A863"
+        android:ems="10"
+        android:hint="MRCTF{...}"
+        android:inputType="textPersonName"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#1E88E5"
+        app:layout_constraintBottom_toTopOf="@+id/checkButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

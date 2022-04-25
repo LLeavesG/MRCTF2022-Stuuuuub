@@ -1,0 +1,80 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    compileSdkVersion 31
+
+    lintOptions {
+        abortOnError false
+    }
+    defaultConfig {
+        applicationId "com.mrctf.android2022"
+        minSdkVersion 29
+        targetSdkVersion 29
+
+        versionCode 1
+        versionName "1.0"
+/*
+        ndk{
+            moduleName "native"
+            abiFilters 'armeabi-v7a'
+            ldLibs "log"
+            ldLibs "libc++"
+            ldLibs "m"
+            ldLibs "c"
+        }
+*/
+        ndk{
+            moduleName "stub"
+            abiFilters 'armeabi-v7a'
+            ldLibs "log"
+            ldLibs "libc++"
+            ldLibs "m"
+            ldLibs "c"
+        }
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        externalNativeBuild {
+            ndkBuild {
+                cppFlags ''
+            }
+        }
+    }
+    buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    sourceSets {
+
+        main() {
+            jniLibs.srcDirs = ['src/main/libs']
+            jni.srcDirs = [] //屏蔽默认的jni编译生成过程
+        }
+    }
+    externalNativeBuild {
+        ndkBuild {
+            path file('src/main/jni/Android.mk')
+        }
+    }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'com.google.android.material:material:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation project(path: ':stub')
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+}
+

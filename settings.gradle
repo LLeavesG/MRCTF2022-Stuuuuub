@@ -1,0 +1,3 @@
+include ':app'
+rootProject.name = "MR2022"
+include ':stub'
